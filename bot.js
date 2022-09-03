@@ -2,6 +2,10 @@ import dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
 import pullDude from './pullDudexpress.mjs'
 import cron from 'node-cron'
+const request = require('request');
+const express = require('express');
+const app = express();
+
 
 dotenv.config()
 const TELEGRAM_KEY = process.env.TELEGRAM_KEY
@@ -30,3 +34,9 @@ cron.schedule("0 9 * * *", function () {
      parse_mode: "markdown", disable_web_page_preview: false })}).catch(err => console.log(err));
     })
 bot.launch()
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function () {
+    console.log(`Server is running at port ${PORT}`);
+});
