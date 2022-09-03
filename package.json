@@ -1,5 +1,6 @@
 {
   "name": "dudebot-review",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.0.2"
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
+    "node-cron": "^3.0.2",
+    "telegraf": "^4.9.1",
+    "xml2js": "^0.4.23"
   }
 }
