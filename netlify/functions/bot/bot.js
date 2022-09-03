@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
-import pullDude from './pullDudexpress.mjs'
+import pullDude from '../../../pullDudexpress.mjs'
 import cron from 'node-cron'
 
 dotenv.config()
@@ -11,8 +11,8 @@ const bot = new Telegraf(TELEGRAM_KEY)
 bot.start((context) => {
 
 	id = context.chat.id
-    console.log(id);
-	//context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente')
+    //console.log(id);
+	context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente')
 })
 bot.hears('new', async context=>{
 	const targetReview = await pullDude().then(r => r)
