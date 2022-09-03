@@ -2,8 +2,7 @@ import dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
 import pullDude from './pullDudexpress.mjs'
 import cron from 'node-cron'
-const request = require('request');
-const express = require('express');
+import express from 'express'
 const app = express();
 
 
