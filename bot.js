@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { Telegraf } from 'telegraf'
-import pullDude from '../../../pullDudexpress.mjs'
+import pullDude from './pullDudexpress.mjs'
 import cron from 'node-cron'
 
 dotenv.config()
@@ -9,9 +9,6 @@ const CHAT_ID = process.env.CHAT_ID
 
 const bot = new Telegraf(TELEGRAM_KEY)
 bot.start((context) => {
-
-	id = context.chat.id
-    //console.log(id);
 	context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente')
 })
 bot.hears('new', async context=>{
@@ -33,14 +30,3 @@ cron.schedule("0 9 * * *", function () {
      parse_mode: "markdown", disable_web_page_preview: false })}).catch(err => console.log(err));
     })
 bot.launch()
-
-// AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
-exports.handler = async event => {
-    try {
-      await bot.handleUpdate(JSON.parse(event.body))
-      return { statusCode: 200, body: "" }
-    } catch (e) {
-      console.error("error in handler:", e)
-      return { statusCode: 400, body: "This endpoint is meant for bot and telegram communication" }
-    }
-  }
