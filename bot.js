@@ -23,7 +23,7 @@ bot.hears('new', async context=>{
     }
 })
 
-cron.schedule("0 9 * * *", function () {
+cron.schedule("0 7 * * *", function () {
     pullDude()
      .then(  function (result) {
         console.log(result);
