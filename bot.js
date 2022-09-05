@@ -32,7 +32,10 @@ bot.hears('test', () => {
   );
 });
 bot.hears('id', (ctx) => {
-  bot.reply(ctx);
+  bot.telegram.sendMessage(CHAT_ID, ctx, {
+    parse_mode: 'markdown',
+    disable_web_page_preview: false,
+  });
 });
 
 cron.schedule('0 7 * * *', function () {
