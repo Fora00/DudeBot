@@ -22,6 +22,9 @@ bot.hears('new', async (context) => {
   }
 });
 
+// 174784018 -> fora
+// 11614517 -> tia
+
 bot.hears('test', () => {
   bot.telegram.sendMessage(
     CHAT_ID,
@@ -32,7 +35,7 @@ bot.hears('test', () => {
   );
 });
 bot.hears('id', (ctx) => {
-  context.reply(ctx.chat.id);
+  ctx.reply(ctx.chat.id);
 });
 
 cron.schedule('0 7 * * *', function () {
