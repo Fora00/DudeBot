@@ -35,7 +35,7 @@ bot.hears('test', () => {
   );
 });
 bot.hears('id', (ctx) => {
-  ctx.reply(ctx.user.id);
+  ctx.reply(ctx.from.id);
 });
 
 cron.schedule('0 7 * * *', function () {
