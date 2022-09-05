@@ -10,9 +10,11 @@ const TELEGRAM_KEY = process.env.TELEGRAM_KEY;
 const CHAT_ID = process.env.CHAT_ID;
 
 const bot = new Telegraf(TELEGRAM_KEY);
+
 bot.start((context) => {
   context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente');
 });
+
 bot.hears('new', async (context) => {
   const targetReview = await pullDude().then((r) => r);
   if (new Date(targetReview.pubDate) == new Date()) {
@@ -22,15 +24,6 @@ bot.hears('new', async (context) => {
   }
 });
 
-bot.hears('test', () => {
-  bot.telegram.sendMessage(
-    CHAT_ID,
-    " It's me, a test  <strong><a href='tg://user?id=11614517'>@nostalgiaz</a> ti evoco </strong> <a href='tg://resolve?domain=angi7523'>@angi7523</a> sei stato evocato",
-    {
-      parse_mode: 'html',
-    }
-  );
-});
 bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id);
 });
@@ -38,12 +31,14 @@ bot.hears('id', (ctx) => {
 // 174784018 -> fora
 // 11614517 -> tia
 // 158594735 -> chiara
+// 788802936 -> ema
+// 2128787533 -> bruno
 
 cron.schedule('0 7 * * *', function () {
   pullDude()
     .then(function (result) {
       console.log(result);
-      const res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=174784018),  [@nostalgiaz](tg://user?id=11614517), [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), @Pulvi88 , Bruno`;
+      const res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=174784018),  [@nostalgiaz](tg://user?id=11614517), [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), [@Pulvi88](tg://user?id=788802936) , [Bruno](tg://user?id=2128787533)`;
 
       bot.telegram.sendMessage(CHAT_ID, res, {
         parse_mode: 'markdown',
