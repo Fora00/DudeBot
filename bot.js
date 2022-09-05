@@ -25,7 +25,7 @@ bot.hears('new', async (context) => {
 bot.hears('test', () => {
   bot.telegram.sendMessage(
     CHAT_ID,
-    " It's me, a test  <strong> <a href=''/> <a href='tg://resolve?domain=nostalgiaz'>Tia</a> ti evoco </strong>",
+    " It's me, a test  <strong><a href='tg://resolve?domain=nostalgiaz'>Tia</a> ti evoco </strong>",
     {
       parse_mode: 'html',
     }
