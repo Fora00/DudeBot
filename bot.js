@@ -23,15 +23,13 @@ bot.hears('new', async (context) => {
 });
 
 bot.hears('test', () => {
-  bot.telegram
-    .sendMessage(
-      CHAT_ID,
-      "<h1> It's me, a test </h1> <strong> <a href=''/> <a href='tg://resolve?domain=nostalgiaz'>Tia</a> ti evoco </strong>",
-      {
-        parse_mode: 'html',
-      }
-    )
-    .catch((err) => console.log(err));
+  bot.telegram.sendMessage(
+    CHAT_ID,
+    "<h1> It's me, a test </h1> <strong> <a href=''/> <a href='tg://resolve?domain=nostalgiaz'>Tia</a> ti evoco </strong>",
+    {
+      parse_mode: 'html',
+    }
+  );
 });
 
 cron.schedule('0 7 * * *', function () {
