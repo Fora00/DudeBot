@@ -42,7 +42,6 @@ bot.hears('id', (ctx) => {
 cron.schedule('0 7 * * *', function () {
   pullDude()
     .then(function (result) {
-      console.log(result);
       const res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=174784018),  [@nostalgiaz](tg://user?id=11614517), [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), @Pulvi88 , Bruno`;
 
       bot.telegram.sendMessage(CHAT_ID, res, {
