@@ -17,7 +17,7 @@ bot.start((context) => {
 
 bot.hears('new', async (context) => {
   const targetReview = await pullDude().then((r) => r);
-  if (new Date(targetReview.pubDate) == new Date()) {
+  if (new Date(targetReview.pubDate) >= new Date()) {
     context.reply(targetReview.link[0]);
   } else {
     context.reply('Nessuna nuova review ');
