@@ -32,7 +32,7 @@ bot.hears('test', () => {
   );
 });
 bot.hears('id', (ctx) => {
-  bot.reply(ctx.from.id);
+  bot.reply(ctx);
 });
 
 cron.schedule('0 7 * * *', function () {
