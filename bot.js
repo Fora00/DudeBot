@@ -22,7 +22,7 @@ bot.hears('new', async (context) => {
   }
 });
 
-bot.hears('test-tag', () => {
+bot.hears('test', () => {
   bot.telegram
     .sendMessage(
       CHAT_ID,
