@@ -22,9 +22,6 @@ bot.hears('new', async (context) => {
   }
 });
 
-// 174784018 -> fora
-// 11614517 -> tia
-
 bot.hears('test', () => {
   bot.telegram.sendMessage(
     CHAT_ID,
@@ -38,11 +35,15 @@ bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id);
 });
 
+// 174784018 -> fora
+// 11614517 -> tia
+// 158594735 -> chiara
+
 cron.schedule('0 7 * * *', function () {
   pullDude()
     .then(function (result) {
       console.log(result);
-      const res = `${result.title} è l'ultima recensione uscita (${result.link[0]})`;
+      const res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=174784018),  [@nostalgiaz](tg://user?id=11614517), [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), @Pulvi88 , Bruno`;
 
       bot.telegram.sendMessage(CHAT_ID, res, {
         parse_mode: 'markdown',
