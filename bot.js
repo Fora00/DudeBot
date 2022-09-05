@@ -25,11 +25,14 @@ bot.hears('new', async (context) => {
 bot.hears('test', () => {
   bot.telegram.sendMessage(
     CHAT_ID,
-    " It's me, a test  <strong><a href='tg://resolve?domain=nostalgiaz'>@nostalgiaz</a> ti evoco </strong> <a href='tg://resolve?domain=angi7523'>@angi7523</a> sei stato evocato",
+    " It's me, a test  <strong><a href='tg://user?id=11614517'>@nostalgiaz</a> ti evoco </strong> <a href='tg://resolve?domain=angi7523'>@angi7523</a> sei stato evocato",
     {
       parse_mode: 'html',
     }
   );
+});
+bot.hears('id', (ctx) => {
+  bot.reply(ctx.from.id);
 });
 
 cron.schedule('0 7 * * *', function () {
