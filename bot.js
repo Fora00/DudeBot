@@ -8,6 +8,12 @@ dotenv.config();
 
 const TELEGRAM_KEY = process.env.TELEGRAM_KEY;
 const CHAT_ID = process.env.CHAT_ID;
+const BRUNO_ID=process.env.BRUNO_ID
+const CHIARA_ID=process.env.CHIARA_ID
+const TIA_ID=process.env.TIA_ID
+const FORA_ID=process.env.FORA_ID
+const EMA_ID=process.env.EMA_ID
+const ANGELO_ID=process.env.ANGELO_ID
 const PORT = process.env.PORT || 3000;
 const bot = new Telegraf(TELEGRAM_KEY);
 
@@ -28,18 +34,12 @@ bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id);
 });
 
-// 174784018 -> fora
-// 11614517 -> tia
-// 158594735 -> chiara
-// 788802936 -> ema
-// 2128787533 -> bruno
-
 cron.schedule('0 7 * * *', function () {
   pullDude()
     .then(function (result) {
       const res = '';
       if (new Date(review.pubDate) >= new Date()) {
-        res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=174784018),  [@nostalgiaz](tg://user?id=11614517), [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), [@Pulvi88](tg://user?id=788802936) , [Bruno](tg://user?id=2128787533)`;
+        res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=${FORA_ID}),  [@nostalgiaz](tg://user?id=${TIA_ID}), [Angelo](tg://user?id=${ANGELO_ID}), [Chiara](tg://user?id=${CHIARA_ID}), [@Pulvi88](tg://user?id=${EMA_ID}) , [Bruno](tg://user?id=${BRUNO_ID})`;
       } else {
         res =
           'nessuna nuova review  [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), i dudes sono nelle vostre mani per i social!  ';
