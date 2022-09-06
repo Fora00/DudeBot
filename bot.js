@@ -37,13 +37,23 @@ bot.hears('id', (ctx) => {
 cron.schedule('0 7 * * *', function () {
   pullDude()
     .then(function (result) {
-      console.log(result);
-      const res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=174784018),  [@nostalgiaz](tg://user?id=11614517), [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), [@Pulvi88](tg://user?id=788802936) , [Bruno](tg://user?id=2128787533)`;
+      if (new Date(review.pubDate) >= new Date()) {
+        const res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=174784018),  [@nostalgiaz](tg://user?id=11614517), [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), [@Pulvi88](tg://user?id=788802936) , [Bruno](tg://user?id=2128787533)`;
 
-      bot.telegram.sendMessage(CHAT_ID, res, {
-        parse_mode: 'markdown',
-        disable_web_page_preview: false,
-      });
+        bot.telegram.sendMessage(CHAT_ID, res, {
+          parse_mode: 'markdown',
+          disable_web_page_preview: false,
+        });
+      } else {
+        bot.telegram.sendMessage(
+          CHAT_ID,
+          'nessuna nuova review  [Angelo](tg://user?id=1602351576), [Chiara](tg://user?id=158594735), i dudes sono nelle vostre mani per i social!  ',
+          {
+            parse_mode: 'markdown',
+            disable_web_page_preview: false,
+          }
+        );
+      }
     })
     .catch((err) => console.log(err));
 });
