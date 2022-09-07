@@ -23,7 +23,7 @@ bot.start((context) => {
 
 bot.hears('new', async (context) => {
   const targetReview = await pullDude().then((r) => r);
-  if (new Date(targetReview.pubDate) == new Date()) {
+  if (new Date(targetReview.pubDate) >= new Date().toDateString()) {
     context.reply(targetReview.link[0]);
   } else {
     context.reply('Nessuna nuova review ');
@@ -38,7 +38,7 @@ cron.schedule('0 7 * * *', function () {
   pullDude()
     .then(function (result) {
       const res = '';
-      if (new Date(result.pubDate) == new Date()) {
+      if (new Date(result.pubDate) >= new Date()) {
         res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! [@Uroboro00](tg://user?id=${FORA_ID}),  [@nostalgiaz](tg://user?id=${TIA_ID}), [Angelo](tg://user?id=${ANGELO_ID}), [Chiara](tg://user?id=${CHIARA_ID}), [@Pulvi88](tg://user?id=${EMA_ID}) , [Bruno](tg://user?id=${BRUNO_ID})`;
       } else {
         res = `nessuna nuova review  [Angelo](tg://user?id=${ANGELO_ID}), [Chiara](tg://user?id=${CHIARA_ID}), i dudes sono nelle vostre mani per i social!`;
