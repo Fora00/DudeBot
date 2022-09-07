@@ -34,6 +34,10 @@ bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id);
 });
 
+bot.hears('chat_id', (ctx) => {
+  ctx.reply(ctx.chat.id);
+});
+
 cron.schedule(
   '0 9 * * *',
   function () {
