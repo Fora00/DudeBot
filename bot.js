@@ -35,7 +35,7 @@ bot.hears('id', (ctx) => {
 });
 
 bot.hears('chat_id', (ctx) => {
-  ctx.reply(ctx.chat.id, ctx.from.id);
+  ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
 
 cron.schedule(
