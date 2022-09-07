@@ -4,6 +4,7 @@ import pullDude from './pullDudexpress.mjs';
 import { DudeId, DudeTag } from './constants.mjs';
 import cron from 'node-cron';
 import express from 'express';
+import { testDate } from './helper.mjs';
 const app = express();
 dotenv.config();
 
@@ -21,10 +22,11 @@ bot.start((context) => {
 
 bot.hears('new', async (context) => {
   const targetReview = await pullDude().then((r) => r);
-  if (new Date(targetReview.pubDate) >= new Date().toDateString()) {
+
+  if (testDate(targetReview.pubDate)) {
     context.reply(targetReview.link[0]);
   } else {
-    context.reply('Nessuna nuova review ');
+    context.reply(`Nessuna nuova review, l'ultima review uscita è ${targetReview.link[0]}`);
   }
 });
 
@@ -32,22 +34,29 @@ bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id);
 });
 
-cron.schedule('0 7 * * *', function () {
-  pullDude()
-    .then(function (result) {
-      const res = '';
-      if (new Date(result.pubDate) >= new Date().toDateString()) {
-        res = `${result.title} è l'ultima recensione uscita (${result.link[0]}) ! ${fora_tag},${ema_tag},${bruno_tag},${angelo_tag},${chiara_tag},${tia_tag}`;
-      } else {
-        res = `nessuna nuova review  ${angelo_tag}, ${chiara_tag}, i dudes sono nelle vostre mani per i social!`;
-      }
-      bot.telegram.sendMessage(CHAT_ID, res, {
-        parse_mode: 'markdown',
-        disable_web_page_preview: false,
-      });
-    })
-    .catch((err) => console.log(err));
-});
+cron.schedule(
+  '0 9 * * *',
+  function () {
+    pullDude()
+      .then((targetReview) => {
+        let res = '';
+        if (new Date(targetReview.pubDate) <= new Date()) {
+          res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${fora_tag},${ema_tag},${bruno_tag},${angelo_tag},${chiara_tag},${tia_tag}`;
+        } else {
+          res = `nessuna nuova review  ${angelo_tag}, ${chiara_tag}, i dudes sono nelle vostre mani per i social!`;
+        }
+        bot.telegram.sendMessage(CHAT_ID, res, {
+          parse_mode: 'markdown',
+          disable_web_page_preview: false,
+        });
+      })
+      .catch((err) => console.log(err));
+  },
+  {
+    scheduled: true,
+    timezone: 'Europe/Rome',
+  }
+);
 bot.launch();
 
 app.listen(PORT, function () {
