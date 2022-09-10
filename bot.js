@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import { Telegraf } from 'telegraf';
 import pullDude from './pullDudexpress.mjs';
-import { DudeId, DudeTag } from './constants.mjs';
+import { DudeId, DudeTag, Text } from './constants.mjs';
 import cron from 'node-cron';
 import express from 'express';
 import { testDate } from './helper.mjs';
@@ -20,7 +20,7 @@ bot.start((context) => {
   context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente');
 });
 
-bot.hears('new', async (context) => {
+bot.command('new', async (context) => {
   const targetReview = await pullDude().then((r) => r);
 
   if (testDate(targetReview.pubDate)) {
@@ -29,6 +29,13 @@ bot.hears('new', async (context) => {
     context.reply(`Nessuna nuova review, l'ultima review uscita è ${targetReview.link[0]}`);
   }
 });
+
+bot.command('links',  (ctx) => {
+  ctx.reply(Text.links ,{
+    parse_mode: 'markdown',
+    disable_web_page_preview: true,
+  })
+})
 
 bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id);
