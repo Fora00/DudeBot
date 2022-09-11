@@ -51,7 +51,7 @@ cron.schedule(
     pullDude()
       .then((targetReview) => {
         let res = '';
-        if (new Date(targetReview.pubDate) <= new Date()) {
+        if (testDate(targetReview.pubDate)) {
           res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${fora_tag},${ema_tag},${bruno_tag},${angelo_tag},${chiara_tag},${tia_tag}`;
         } else {
           res = `nessuna nuova review  ${angelo_tag}, ${chiara_tag}, i dudes sono nelle vostre mani per i social!`;
