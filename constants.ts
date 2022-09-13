@@ -24,3 +24,13 @@ export const DudeId = {
   bruno_id: BRUNO_ID,
   fora_id: FORA_ID,
 };
+
+export const DudeText = {
+  links: `🚀*I DUDELINK DI CUI AVETE BISOGNO*🚀
+
+  🗂*Drive*-> [LINK](https://drive.google.com/folderview?id=1PgYdS77QVUMm8H1M881i9mNrfhpZ7tKg);
+
+  🗓*Calendar*-> [LINK](https://calendar.google.com/calendar/u/0?cid=amo4OGdsa3RmbzFjcXNjNHBlZDBuNGtnanNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ);
+
+  📚*Notion*->[LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd)`,
+};

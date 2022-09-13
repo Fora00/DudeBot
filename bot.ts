@@ -4,7 +4,7 @@ import { pullDude } from './pullDude.js';
 import cron from 'node-cron';
 import express from 'express';
 import { testDate } from './helper.js';
-import { DudeId, DudeTag } from './constants.js';
+import { DudeId, DudeTag, DudeText } from './constants.js';
 const app = express();
 dotenv.config();
 
@@ -30,6 +30,13 @@ bot.hears('new', async (context) => {
   }
 });
 
+bot.command('links', (ctx) => {
+  ctx.reply(DudeText.links, {
+    parse_mode: 'Markdown',
+    disable_web_page_preview: true,
+  });
+});
+
 bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id.toString());
 });
@@ -39,12 +46,12 @@ bot.hears('chat_id', (ctx) => {
 });
 
 cron.schedule(
-  '0 9 30 * *',
+  '30 9 * * *',
   function () {
     pullDude()
       .then((targetReview) => {
         let res = '';
-        if (new Date(targetReview.pubDate) <= new Date()) {
+        if (testDate(targetReview.pubDate)) {
           res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${fora_tag},${ema_tag},${bruno_tag},${angelo_tag},${chiara_tag},${tia_tag}`;
         } else {
           res = `nessuna nuova review  ${angelo_tag}, ${chiara_tag}, i dudes sono nelle vostre mani per i social!`;
