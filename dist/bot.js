@@ -30,7 +30,7 @@ const { angelo_id, bruno_id, chiara_id, tia_id, fora_id, ema_id } = constants_js
 bot.start((context) => {
     context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente');
 });
-bot.hears('new', (context) => __awaiter(void 0, void 0, void 0, function* () {
+bot.command('new', (context) => __awaiter(void 0, void 0, void 0, function* () {
     const targetReview = yield (0, pullDude_js_1.pullDude)().then((r) => r);
     if ((0, helper_js_1.testDate)(targetReview.pubDate)) {
         context.reply(targetReview.link[0]);
@@ -39,17 +39,23 @@ bot.hears('new', (context) => __awaiter(void 0, void 0, void 0, function* () {
         context.reply(`Nessuna nuova review, l'ultima review uscita è ${targetReview.link[0]}`);
     }
 }));
+bot.command('links', (ctx) => {
+    ctx.reply(constants_js_1.DudeText.links, {
+        parse_mode: 'Markdown',
+        disable_web_page_preview: true,
+    });
+});
 bot.hears('id', (ctx) => {
     ctx.reply(ctx.from.id.toString());
 });
 bot.hears('chat_id', (ctx) => {
     ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
-node_cron_1.default.schedule('0 9 30 * *', function () {
+node_cron_1.default.schedule('30 9 * * *', function () {
     (0, pullDude_js_1.pullDude)()
         .then((targetReview) => {
         let res = '';
-        if (new Date(targetReview.pubDate) <= new Date()) {
+        if ((0, helper_js_1.testDate)(targetReview.pubDate)) {
             res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${fora_tag},${ema_tag},${bruno_tag},${angelo_tag},${chiara_tag},${tia_tag}`;
         }
         else {
