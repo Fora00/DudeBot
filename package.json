@@ -1,12 +1,12 @@
 {
   "name": "dudebot-review",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "keywords": [],
   "author": "",
@@ -16,8 +16,16 @@
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "node-cron": "^3.0.2",
-    "nodemon": "^2.0.19",
     "telegraf": "^4.9.1",
     "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.17",
+    "@types/node-cron": "^3.0.4",
+    "@types/xml2js": "^0.4.11",
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.19",
+    "typescript": "^4.8.3"
   }
 }

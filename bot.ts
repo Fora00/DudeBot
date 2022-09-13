@@ -1,10 +1,10 @@
 import dotenv from 'dotenv';
 import { Telegraf } from 'telegraf';
-import pullDude from './pullDudexpress.mjs';
-import { DudeId, DudeTag } from './constants.mjs';
+import { pullDude } from './pullDude.js';
 import cron from 'node-cron';
 import express from 'express';
-import { testDate } from './helper.mjs';
+import { testDate } from './helper.js';
+import { DudeId, DudeTag } from './constants.js';
 const app = express();
 dotenv.config();
 
@@ -21,7 +21,7 @@ bot.start((context) => {
 });
 
 bot.hears('new', async (context) => {
-  const targetReview = await pullDude().then((r) => r);
+  const targetReview = await pullDude().then((r: any) => r);
 
   if (testDate(targetReview.pubDate)) {
     context.reply(targetReview.link[0]);
@@ -31,7 +31,7 @@ bot.hears('new', async (context) => {
 });
 
 bot.hears('id', (ctx) => {
-  ctx.reply(ctx.from.id);
+  ctx.reply(ctx.from.id.toString());
 });
 
 bot.hears('chat_id', (ctx) => {
@@ -50,7 +50,7 @@ cron.schedule(
           res = `nessuna nuova review  ${angelo_tag}, ${chiara_tag}, i dudes sono nelle vostre mani per i social!`;
         }
         bot.telegram.sendMessage(CHAT_ID, res, {
-          parse_mode: 'markdown',
+          parse_mode: 'Markdown',
           disable_web_page_preview: false,
         });
       })
