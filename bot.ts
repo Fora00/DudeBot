@@ -20,7 +20,7 @@ bot.start((context) => {
   context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente');
 });
 
-bot.hears('new', async (context) => {
+bot.command('new', async (context) => {
   const targetReview = await pullDude().then((r: any) => r);
 
   if (testDate(targetReview.pubDate)) {
