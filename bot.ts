@@ -37,6 +37,13 @@ bot.command('links', (ctx) => {
   });
 });
 
+bot.command('reel-meme', (ctx) => {
+  ctx.replyWithPhoto({ source: './assets/reel-meme.jpg' });
+});
+bot.command('review-meme', (ctx) => {
+  ctx.replyWithPhoto({ source: './assets/review-meme.jpg' });
+});
+
 bot.hears('id', (ctx) => {
   ctx.reply(ctx.from.id.toString());
 });
