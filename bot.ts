@@ -46,7 +46,7 @@ bot.hears('chat_id', (ctx) => {
 });
 
 cron.schedule(
-  '30 10 * * *',
+  '0 10 * * *',
   function () {
     pullDude()
       .then((targetReview) => {
