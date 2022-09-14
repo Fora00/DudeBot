@@ -37,10 +37,10 @@ bot.command('links', (ctx) => {
   });
 });
 
-bot.command('reel-meme', (ctx) => {
+bot.command('reel_meme', (ctx) => {
   ctx.replyWithPhoto({ source: './assets/reel-meme.jpg' });
 });
-bot.command('review-meme', (ctx) => {
+bot.command('review_meme', (ctx) => {
   ctx.replyWithPhoto({ source: './assets/review-meme.jpg' });
 });
 
