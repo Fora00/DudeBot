@@ -45,13 +45,19 @@ bot.command('links', (ctx) => {
         disable_web_page_preview: true,
     });
 });
+bot.command('reel_meme', (ctx) => {
+    ctx.replyWithPhoto({ source: './assets/reel-meme.jpg' });
+});
+bot.command('review_meme', (ctx) => {
+    ctx.replyWithPhoto({ source: './assets/review-meme.jpg' });
+});
 bot.hears('id', (ctx) => {
     ctx.reply(ctx.from.id.toString());
 });
 bot.hears('chat_id', (ctx) => {
     ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
-node_cron_1.default.schedule('30 9 * * *', function () {
+node_cron_1.default.schedule('0 10 * * *', function () {
     (0, pullDude_js_1.pullDude)()
         .then((targetReview) => {
         let res = '';
