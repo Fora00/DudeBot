@@ -32,5 +32,7 @@ export const DudeText = {
 
   🗓*Calendar*-> [LINK](https://calendar.google.com/calendar/u/0?cid=amo4OGdsa3RmbzFjcXNjNHBlZDBuNGtnanNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ);
 
-  📚*Notion*->[LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd)`,
+  📚*Notion*->[LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd)
+  
+  ✒️*Editor*->[LINK](https://dudexpress.it/editor); `,
 };
