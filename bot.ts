@@ -53,7 +53,7 @@ bot.hears('chat_id', (ctx) => {
 });
 
 cron.schedule(
-  '0 10 * * *',
+  '0 10 * * 1-5',
   function () {
     pullDude()
       .then((targetReview) => {

@@ -57,7 +57,7 @@ bot.hears('id', (ctx) => {
 bot.hears('chat_id', (ctx) => {
     ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
-node_cron_1.default.schedule('0 10 * * *', function () {
+node_cron_1.default.schedule('0 10 * * 1-5', function () {
     (0, pullDude_js_1.pullDude)()
         .then((targetReview) => {
         let res = '';
