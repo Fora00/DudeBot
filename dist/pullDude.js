@@ -18,8 +18,7 @@ const axios_1 = __importDefault(require("axios"));
 const pullDude = () => __awaiter(void 0, void 0, void 0, function* () {
     const { data: xmlData } = yield axios_1.default.get('https://dudexpress.it/rss');
     const res = yield xml2js_1.default.parseStringPromise(xmlData);
-    const targetReview = res.rss.channel[0].item[0];
     //console.log("⭐️",targetReview);
-    return targetReview;
+    return res.rss.channel[0].item[0];
 });
 exports.pullDude = pullDude;
