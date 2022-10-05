@@ -25,10 +25,9 @@ const TELEGRAM_KEY = process.env.TELEGRAM_KEY;
 const CHAT_ID = process.env.CHAT_ID;
 const PORT = process.env.PORT || 3000;
 const bot = new telegraf_1.Telegraf(TELEGRAM_KEY);
-const { angelo_tag, bruno_tag, chiara_tag, tia_tag, fora_tag, ema_tag } = constants_js_1.DudeTag;
-const { angelo_id, bruno_id, chiara_id, tia_id, fora_id, ema_id } = constants_js_1.DudeId;
+const { angelo_tag, chiara_tag, tia_tag, fora_tag, ema_tag, veronica_tag } = constants_js_1.DudeTag;
 bot.start((context) => {
-    context.reply('Ciao dudes ogni mattina alle 9.00 vi invierò una nuova recensione se presente');
+    context.reply('Ciao dudes ogni mattina alle 10.00 vi invierò una nuova recensione se presente');
 });
 bot.command('new', (context) => __awaiter(void 0, void 0, void 0, function* () {
     const targetReview = yield (0, pullDude_js_1.pullDude)().then((r) => r);
@@ -45,12 +44,6 @@ bot.command('links', (ctx) => {
         disable_web_page_preview: true,
     });
 });
-bot.command('reel_meme', (ctx) => {
-    ctx.replyWithPhoto({ source: './assets/reel-meme.jpg' });
-});
-bot.command('review_meme', (ctx) => {
-    ctx.replyWithPhoto({ source: './assets/review-meme.jpg' });
-});
 bot.hears('id', (ctx) => {
     ctx.reply(ctx.from.id.toString());
 });
@@ -62,10 +55,10 @@ node_cron_1.default.schedule('0 10 * * *', function () {
         .then((targetReview) => {
         let res = '';
         if ((0, helper_js_1.testDate)(targetReview.pubDate)) {
-            res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${fora_tag},${ema_tag},${bruno_tag},${angelo_tag},${chiara_tag},${tia_tag}`;
+            res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${angelo_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag}`;
         }
         else {
-            res = `nessuna nuova review  ${angelo_tag}, ${chiara_tag}, i dudes sono nelle vostre mani per i social!`;
+            return;
         }
         bot.telegram.sendMessage(CHAT_ID, res, {
             parse_mode: 'Markdown',

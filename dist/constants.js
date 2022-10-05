@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DudeText = exports.DudeId = exports.DudeTag = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const BRUNO_ID = process.env.BRUNO_ID;
+const VERONICA_ID = process.env.VERONICA_ID;
 const CHIARA_ID = process.env.CHIARA_ID;
 const TIA_ID = process.env.TIA_ID;
 const FORA_ID = process.env.FORA_ID;
@@ -17,7 +17,7 @@ exports.DudeTag = {
     chiara_tag: `[Chiara](tg://user?id=${CHIARA_ID})`,
     tia_tag: `[@nostalgiaz](tg://user?id=${TIA_ID})`,
     ema_tag: `[@Pulvi88](tg://user?id=${EMA_ID})`,
-    bruno_tag: `[Bruno](tg://user?id=${BRUNO_ID})`,
+    veronica_tag: `[@vero2000](tg://user?id=${VERONICA_ID})`,
     fora_tag: `[@Uroboro00](tg://user?id=${FORA_ID})`,
 };
 exports.DudeId = {
@@ -25,7 +25,7 @@ exports.DudeId = {
     chiara_id: CHIARA_ID,
     tia_id: TIA_ID,
     ema_id: EMA_ID,
-    bruno_id: BRUNO_ID,
+    veronica_id: VERONICA_ID,
     fora_id: FORA_ID,
 };
 exports.DudeText = {
@@ -35,7 +35,7 @@ exports.DudeText = {
 
   🗓*Calendar*-> [LINK](https://calendar.google.com/calendar/u/0?cid=amo4OGdsa3RmbzFjcXNjNHBlZDBuNGtnanNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ);
 
-  📚*Notion*->[LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd)
+  📚*Notion*->[LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd);
   
   ✒️*Editor*->[LINK](https://dudexpress.it/editor); `,
 };
