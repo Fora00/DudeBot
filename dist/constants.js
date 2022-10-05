@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DudeText = exports.DudeId = exports.DudeTag = void 0;
+exports.DudePlan = exports.DudeText = exports.DudeId = exports.DudeTag = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const VERONICA_ID = process.env.VERONICA_ID;
@@ -38,4 +38,16 @@ exports.DudeText = {
   📚*Notion*->[LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd);
   
   ✒️*Editor*->[LINK](https://dudexpress.it/editor); `,
+};
+exports.DudePlan = {
+    week: `🚀*LA SETTIMANA DEI DUDE*🚀
+  -> *lun*: review guest/core
+  -> *mar*:  storie offerte
+  -> *mer*: rubrica ig angelo
+  -> *gio*: review core
+  -> *ven*: revuew guest/core
+  -> *sab*: ig sconti 
+  -> *dom*: storie meme
+
+Chiaranente tutto adattabile a bisogno `,
 };

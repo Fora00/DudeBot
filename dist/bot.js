@@ -44,6 +44,12 @@ bot.command('links', (ctx) => {
         disable_web_page_preview: true,
     });
 });
+bot.command('plan', (ctx) => {
+    ctx.reply(constants_js_1.DudeText.links, {
+        parse_mode: 'Markdown',
+        disable_web_page_preview: true,
+    });
+});
 bot.hears('id', (ctx) => {
     ctx.reply(ctx.from.id.toString());
 });

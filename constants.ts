@@ -36,3 +36,16 @@ export const DudeText = {
   
   ✒️*Editor*->[LINK](https://dudexpress.it/editor); `,
 };
+
+export const DudePlan = {
+  week: `🚀*LA SETTIMANA DEI DUDE*🚀
+  -> *lun*: review guest/core
+  -> *mar*:  storie offerte
+  -> *mer*: rubrica ig angelo
+  -> *gio*: review core
+  -> *ven*: revuew guest/core
+  -> *sab*: ig sconti 
+  -> *dom*: storie meme
+
+Chiaranente tutto adattabile a bisogno `,
+};
