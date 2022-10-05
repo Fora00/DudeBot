@@ -45,7 +45,7 @@ bot.command('links', (ctx) => {
     });
 });
 bot.command('plan', (ctx) => {
-    ctx.reply(constants_js_1.DudeText.links, {
+    ctx.reply(constants_js_1.DudePlan.week, {
         parse_mode: 'Markdown',
         disable_web_page_preview: true,
     });

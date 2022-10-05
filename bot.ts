@@ -4,7 +4,7 @@ import { pullDude } from './pullDude.js';
 import cron from 'node-cron';
 import express from 'express';
 import { testDate } from './helper.js';
-import { DudeTag, DudeText } from './constants.js';
+import { DudePlan, DudeTag, DudeText } from './constants.js';
 
 const app = express();
 dotenv.config();
@@ -37,7 +37,7 @@ bot.command('links', (ctx) => {
   });
 });
 bot.command('plan', (ctx) => {
-  ctx.reply(DudeText.links, {
+  ctx.reply(DudePlan.week, {
     parse_mode: 'Markdown',
     disable_web_page_preview: true,
   });
