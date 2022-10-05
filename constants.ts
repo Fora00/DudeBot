@@ -43,7 +43,7 @@ export const DudePlan = {
   -> *mar*:  storie offerte
   -> *mer*: rubrica ig angelo
   -> *gio*: review core
-  -> *ven*: revuew guest/core
+  -> *ven*: review guest/core
   -> *sab*: ig sconti 
   -> *dom*: storie meme
 
