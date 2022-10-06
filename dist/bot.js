@@ -45,7 +45,7 @@ bot.command('links', (ctx) => {
     });
 });
 bot.command('plan', (ctx) => {
-    ctx.reply(constants_js_1.DudePlan.week, {
+    ctx.reply(constants_js_1.DudeText.week, {
         parse_mode: 'Markdown',
         disable_web_page_preview: true,
     });
@@ -63,9 +63,8 @@ node_cron_1.default.schedule('0 10 * * *', function () {
         if ((0, helper_js_1.testDate)(targetReview.pubDate)) {
             res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${angelo_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag}`;
         }
-        else {
+        else
             return;
-        }
         bot.telegram.sendMessage(CHAT_ID, res, {
             parse_mode: 'Markdown',
             disable_web_page_preview: false,
