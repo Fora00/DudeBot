@@ -56,6 +56,15 @@ bot.hears('id', (ctx) => {
 bot.hears('chat_id', (ctx) => {
     ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
+bot.hears("@team_social", (ctx) => {
+    ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`);
+});
+bot.hears("@team_tech", (ctx) => {
+    ctx.reply(`${fora_tag},${tia_tag}`);
+});
+bot.hears("@team_edit", (ctx) => {
+    ctx.reply(`${ema_tag}`);
+});
 node_cron_1.default.schedule('0 10 * * *', function () {
     (0, pullDude_js_1.pullDude)()
         .then((targetReview) => {
