@@ -70,7 +70,7 @@ node_cron_1.default.schedule('0 10 * * *', function () {
         .then((targetReview) => {
         let res = '';
         if ((0, helper_js_1.testDate)(targetReview.pubDate)) {
-            res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${angelo_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag}`;
+            res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${angelo_tag},${angelo_m_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag}`;
         }
         else
             return;

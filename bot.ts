@@ -68,7 +68,7 @@ cron.schedule(
       .then((targetReview) => {
         let res = '';
         if (testDate(targetReview.pubDate)) {
-          res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${angelo_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag}`;
+          res = `${targetReview.title} è l'ultima recensione uscita (${targetReview.link[0]}) ! ${angelo_tag},${angelo_m_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag}`;
         } else return;
         bot.telegram.sendMessage(CHAT_ID, res, {
           parse_mode: 'Markdown',
