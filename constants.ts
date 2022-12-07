@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const ANGELO_ID = process.env.ANGELO_ID;
+const ANGELO_M_ID = process.env.ANGELO_M_ID;
 const CHIARA_ID = process.env.CHIARA_ID;
 const EMA_ID = process.env.EMA_ID;
 const FORA_ID = process.env.FORA_ID;
@@ -10,6 +11,7 @@ const VERONICA_ID = process.env.VERONICA_ID;
 
 export const DudeTag = {
   angelo_tag: `[Angelo](tg://user?id=${ANGELO_ID})`,
+  angelo_m_tag: `[Angelo](tg://user?id=${ANGELO_M_ID})`,
   chiara_tag: `[Chiara](tg://user?id=${CHIARA_ID})`,
   ema_tag: `[@Pulvi88](tg://user?id=${EMA_ID})`,
   fora_tag: `[@Uroboro00](tg://user?id=${FORA_ID})`,
@@ -18,6 +20,7 @@ export const DudeTag = {
 };
 export const DudeId = {
   angelo_id: ANGELO_ID,
+  angelo_m_id: ANGELO_M_ID,
   chiara_id: CHIARA_ID,
   ema_id: EMA_ID,
   fora_id: FORA_ID,
@@ -39,7 +42,7 @@ export const DudeText = {
   week: `🚀*LA SETTIMANA DEI DUDE*🚀
   -> *lun*: review guest/core
   -> *mar*:  storie offerte
-  -> *mer*: rubrica ig angelo
+  -> *mer*: rubrica ig angelo T
   -> *gio*: review core
   -> *ven*: review guest/core
   -> *sab*: ig sconti 

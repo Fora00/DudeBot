@@ -25,7 +25,7 @@ const TELEGRAM_KEY = process.env.TELEGRAM_KEY;
 const CHAT_ID = process.env.CHAT_ID;
 const PORT = process.env.PORT || 3000;
 const bot = new telegraf_1.Telegraf(TELEGRAM_KEY);
-const { angelo_tag, chiara_tag, tia_tag, fora_tag, ema_tag, veronica_tag } = constants_js_1.DudeTag;
+const { angelo_tag, chiara_tag, tia_tag, fora_tag, ema_tag, veronica_tag, angelo_m_tag } = constants_js_1.DudeTag;
 bot.start((context) => {
     context.reply('Ciao dudes ogni mattina alle 10.00 vi invierò una nuova recensione se presente');
 });
@@ -56,14 +56,14 @@ bot.hears('id', (ctx) => {
 bot.hears('chat_id', (ctx) => {
     ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
-bot.hears("@team_social", (ctx) => {
+bot.hears('@team_social', (ctx) => {
     ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`);
 });
-bot.hears("@team_tech", (ctx) => {
+bot.hears('@team_tech', (ctx) => {
     ctx.reply(`${fora_tag},${tia_tag}`);
 });
-bot.hears("@team_edit", (ctx) => {
-    ctx.reply(`${ema_tag}`);
+bot.hears('@team_edit', (ctx) => {
+    ctx.reply(`${ema_tag}, ${angelo_m_tag}`);
 });
 node_cron_1.default.schedule('0 10 * * *', function () {
     (0, pullDude_js_1.pullDude)()
