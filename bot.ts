@@ -17,7 +17,7 @@ const bot = new Telegraf(TELEGRAM_KEY);
 const { angelo_tag, chiara_tag, tia_tag, fora_tag, ema_tag, veronica_tag, angelo_m_tag } = DudeTag;
 
 bot.start((context) => {
-  context.reply('Ciao dudes ogni mattina alle 10.00 vi invierò una nuova recensione se presente');
+  context.reply('Ciao dudes ogni mattina alle 11.00 vi invierò una nuova recensione se presente');
 });
 
 bot.command('new', async (context) => {
@@ -52,17 +52,17 @@ bot.hears('chat_id', (ctx) => {
 });
 
 bot.hears('@team_social', (ctx) => {
-  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`);
+  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`,{parse_mode: 'Markdown'});
 });
 bot.hears('@team_tech', (ctx) => {
-  ctx.reply(`${fora_tag},${tia_tag}`);
+  ctx.reply(`${fora_tag},${tia_tag}`,{parse_mode: 'Markdown'});
 });
 bot.hears('@team_edit', (ctx) => {
-  ctx.reply(`${ema_tag}, ${angelo_m_tag}`);
+  ctx.reply(`${ema_tag}, ${angelo_m_tag}`,{parse_mode: 'Markdown'});
 });
 
 cron.schedule(
-  '0 10 * * *',
+  '0 11 * * *',
   function () {
     pullDude()
       .then((targetReview) => {

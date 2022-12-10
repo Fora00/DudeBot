@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3000;
 const bot = new telegraf_1.Telegraf(TELEGRAM_KEY);
 const { angelo_tag, chiara_tag, tia_tag, fora_tag, ema_tag, veronica_tag, angelo_m_tag } = constants_js_1.DudeTag;
 bot.start((context) => {
-    context.reply('Ciao dudes ogni mattina alle 10.00 vi invierò una nuova recensione se presente');
+    context.reply('Ciao dudes ogni mattina alle 11.00 vi invierò una nuova recensione se presente');
 });
 bot.command('new', (context) => __awaiter(void 0, void 0, void 0, function* () {
     const targetReview = yield (0, pullDude_js_1.pullDude)().then((r) => r);
@@ -57,15 +57,15 @@ bot.hears('chat_id', (ctx) => {
     ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
 bot.hears('@team_social', (ctx) => {
-    ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`);
+    ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`, { parse_mode: 'Markdown' });
 });
 bot.hears('@team_tech', (ctx) => {
-    ctx.reply(`${fora_tag},${tia_tag}`);
+    ctx.reply(`${fora_tag},${tia_tag}`, { parse_mode: 'Markdown' });
 });
 bot.hears('@team_edit', (ctx) => {
-    ctx.reply(`${ema_tag}, ${angelo_m_tag}`);
+    ctx.reply(`${ema_tag}, ${angelo_m_tag}`, { parse_mode: 'Markdown' });
 });
-node_cron_1.default.schedule('0 10 * * *', function () {
+node_cron_1.default.schedule('0 11 * * *', function () {
     (0, pullDude_js_1.pullDude)()
         .then((targetReview) => {
         let res = '';
