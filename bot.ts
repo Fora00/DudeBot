@@ -60,6 +60,9 @@ bot.hears('@team_tech', (ctx) => {
 bot.hears('@team_edit', (ctx) => {
   ctx.reply(`${ema_tag}, ${angelo_m_tag}`,{parse_mode: 'Markdown'});
 });
+bot.hears('@everyone',(ctx) => {
+  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`,{parse_mode: 'Markdown'});
+});
 
 cron.schedule(
   '0 11 * * *',
