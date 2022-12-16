@@ -67,42 +67,6 @@ bot.hears('@everyone', (ctx) => {
   });
 });
 
-bot.hears('kill', async (ctx) => {
-  ctx.reply('Killing bot');
-  try {
-    // Log in to Railway.app
-    await exec('railway login');
-
-    // Select the project
-    await exec('railway use dudeBot-review');
-
-    // Undeploy the project
-    await exec('railway undeploy');
-
-    console.log('Project undeployed successfully');
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-bot.hears('revive', async (ctx) => {
-  ctx.reply('reviving bot');
-  try {
-    // Log in to Railway.app
-    await exec('railway login');
-
-    // Select the project
-    await exec('railway use dudeBot-review');
-
-    // Undeploy the project
-    await exec('railway deploy');
-
-    console.log('Project undeployed successfully');
-  } catch (error) {
-    console.error(error);
-  }
-});
-
 cron.schedule(
   '0 11 * * *',
   function () {
@@ -124,40 +88,6 @@ cron.schedule(
     timezone: 'Europe/Rome',
   }
 );
-
-cron.schedule('0 7 * * *', async function () {
-  try {
-    // Log in to Railway.app
-    await exec('railway login');
-
-    // Select the project
-    await exec('railway use dudeBot-review');
-
-    // Deploy the project
-    await exec('railway deploy');
-
-    console.log('Project deployed successfully');
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-cron.schedule('0 22 * * *', async function () {
-  try {
-    // Log in to Railway.app
-    await exec('railway login');
-
-    // Select the project
-    await exec('railway use dudeBot-review');
-
-    // Undeploy the project
-    await exec('railway undeploy');
-
-    console.log('Project undeployed successfully');
-  } catch (error) {
-    console.error(error);
-  }
-});
 
 bot.launch();
 
