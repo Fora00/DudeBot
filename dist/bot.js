@@ -71,6 +71,36 @@ bot.hears('@everyone', (ctx) => {
         parse_mode: 'Markdown',
     });
 });
+bot.hears('kill', (ctx) => __awaiter(void 0, void 0, void 0, function* () {
+    ctx.reply('Killing bot');
+    try {
+        // Log in to Railway.app
+        yield (0, child_process_1.exec)('railway login');
+        // Select the project
+        yield (0, child_process_1.exec)('railway use dudeBot-review');
+        // Undeploy the project
+        yield (0, child_process_1.exec)('railway undeploy');
+        console.log('Project undeployed successfully');
+    }
+    catch (error) {
+        console.error(error);
+    }
+}));
+bot.hears('revive', (ctx) => __awaiter(void 0, void 0, void 0, function* () {
+    ctx.reply('reviving bot');
+    try {
+        // Log in to Railway.app
+        yield (0, child_process_1.exec)('railway login');
+        // Select the project
+        yield (0, child_process_1.exec)('railway use dudeBot-review');
+        // Undeploy the project
+        yield (0, child_process_1.exec)('railway deploy');
+        console.log('Project undeployed successfully');
+    }
+    catch (error) {
+        console.error(error);
+    }
+}));
 node_cron_1.default.schedule('0 11 * * *', function () {
     (0, pullDude_js_1.pullDude)()
         .then((targetReview) => {

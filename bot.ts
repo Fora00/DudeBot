@@ -69,7 +69,6 @@ bot.hears('@everyone', (ctx) => {
 
 bot.hears('kill', async (ctx) => {
   ctx.reply('Killing bot');
-
   try {
     // Log in to Railway.app
     await exec('railway login');
@@ -79,6 +78,24 @@ bot.hears('kill', async (ctx) => {
 
     // Undeploy the project
     await exec('railway undeploy');
+
+    console.log('Project undeployed successfully');
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+bot.hears('revive', async (ctx) => {
+  ctx.reply('reviving bot');
+  try {
+    // Log in to Railway.app
+    await exec('railway login');
+
+    // Select the project
+    await exec('railway use dudeBot-review');
+
+    // Undeploy the project
+    await exec('railway deploy');
 
     console.log('Project undeployed successfully');
   } catch (error) {
