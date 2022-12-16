@@ -5,6 +5,7 @@ import cron from 'node-cron';
 import express from 'express';
 import { testDate } from './helper.js';
 import { DudeTag, DudeText } from './constants.js';
+import { exec } from 'child_process';
 
 const app = express();
 dotenv.config();
@@ -52,16 +53,18 @@ bot.hears('chat_id', (ctx) => {
 });
 
 bot.hears('@team_social', (ctx) => {
-  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`,{parse_mode: 'Markdown'});
+  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`, { parse_mode: 'Markdown' });
 });
 bot.hears('@team_tech', (ctx) => {
-  ctx.reply(`${fora_tag},${tia_tag}`,{parse_mode: 'Markdown'});
+  ctx.reply(`${fora_tag},${tia_tag}`, { parse_mode: 'Markdown' });
 });
 bot.hears('@team_edit', (ctx) => {
-  ctx.reply(`${ema_tag}, ${angelo_m_tag}`,{parse_mode: 'Markdown'});
+  ctx.reply(`${ema_tag}, ${angelo_m_tag}`, { parse_mode: 'Markdown' });
 });
-bot.hears('@everyone',(ctx) => {
-  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`,{parse_mode: 'Markdown'});
+bot.hears('@everyone', (ctx) => {
+  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`, {
+    parse_mode: 'Markdown',
+  });
 });
 
 cron.schedule(
@@ -85,6 +88,41 @@ cron.schedule(
     timezone: 'Europe/Rome',
   }
 );
+
+cron.schedule('0 7 * * *', async function () {
+  try {
+    // Log in to Railway.app
+    await exec('railway login');
+
+    // Select the project
+    await exec('railway use dudeBot-review');
+
+    // Deploy the project
+    await exec('railway deploy');
+
+    console.log('Project deployed successfully');
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+cron.schedule('0 22 * * *', async function () {
+  try {
+    // Log in to Railway.app
+    await exec('railway login');
+
+    // Select the project
+    await exec('railway use dudeBot-review');
+
+    // Undeploy the project
+    await exec('railway undeploy');
+
+    console.log('Project undeployed successfully');
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 bot.launch();
 
 app.listen(PORT, function () {
