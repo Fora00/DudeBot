@@ -5,7 +5,6 @@ import cron from 'node-cron';
 import express from 'express';
 import { testDate } from './helper.js';
 import { DudeTag, DudeText } from './constants.js';
-import { exec } from 'child_process';
 
 const app = express();
 dotenv.config();
@@ -53,18 +52,16 @@ bot.hears('chat_id', (ctx) => {
 });
 
 bot.hears('@team_social', (ctx) => {
-  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`, { parse_mode: 'Markdown' });
+  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`,{parse_mode: 'Markdown'});
 });
 bot.hears('@team_tech', (ctx) => {
-  ctx.reply(`${fora_tag},${tia_tag}`, { parse_mode: 'Markdown' });
+  ctx.reply(`${fora_tag},${tia_tag}`,{parse_mode: 'Markdown'});
 });
 bot.hears('@team_edit', (ctx) => {
-  ctx.reply(`${ema_tag}, ${angelo_m_tag}`, { parse_mode: 'Markdown' });
+  ctx.reply(`${ema_tag}, ${angelo_m_tag}`,{parse_mode: 'Markdown'});
 });
-bot.hears('@everyone', (ctx) => {
-  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`, {
-    parse_mode: 'Markdown',
-  });
+bot.hears('@everyone',(ctx) => {
+  ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`,{parse_mode: 'Markdown'});
 });
 
 cron.schedule(
@@ -89,12 +86,11 @@ cron.schedule(
   }
 );
 
-<<<<<<< HEAD
 cron.schedule('0 10 15 1-12 *', () => {
   const res = `${angelo_tag},${angelo_m_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag} vi ricordate di mandare tra 5 giorni i testi delle recensioni a fora?`;
   bot.telegram.sendMessage(CHAT_ID,res,{
     parse_mode: 'Markdown',
-    disable_web_page_preview: false,
+    
   })
 },
   {
@@ -105,7 +101,7 @@ cron.schedule('0 10 20 1-12 *', () => {
   const res = `${angelo_tag},${angelo_m_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag} avete mandato i testi delle recensioni a fora?`;
   bot.telegram.sendMessage(CHAT_ID,res,{
     parse_mode: 'Markdown',
-    disable_web_page_preview: false,
+    
   })
 },
   {
@@ -113,8 +109,6 @@ cron.schedule('0 10 20 1-12 *', () => {
     timezone: 'Europe/Rome',
   });
 
-=======
->>>>>>> 6a04af9adb4eb5303b5279a31f6956e4fb559aff
 bot.launch();
 
 app.listen(PORT, function () {
