@@ -87,7 +87,7 @@ node_cron_1.default.schedule('0 11 * * *', function () {
     scheduled: true,
     timezone: 'Europe/Rome',
 });
-node_cron_1.default.schedule('0 10 15 1-12 *', () => {
+node_cron_1.default.schedule('0 10 20 1-12 *', () => {
     const res = `${angelo_tag},${angelo_m_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag} vi ricordate di mandare tra 5 giorni i testi delle recensioni a fora?`;
     bot.telegram.sendMessage(CHAT_ID, res, {
         parse_mode: 'Markdown',
@@ -96,7 +96,7 @@ node_cron_1.default.schedule('0 10 15 1-12 *', () => {
     scheduled: true,
     timezone: 'Europe/Rome',
 });
-node_cron_1.default.schedule('0 10 20 1-12 *', () => {
+node_cron_1.default.schedule('0 10 25 1-12 *', () => {
     const res = `${angelo_tag},${angelo_m_tag},${chiara_tag},${ema_tag},${fora_tag},${tia_tag},${veronica_tag} avete mandato i testi delle recensioni a fora?`;
     bot.telegram.sendMessage(CHAT_ID, res, {
         parse_mode: 'Markdown',
