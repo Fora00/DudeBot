@@ -66,7 +66,9 @@ bot.hears('@team_edit', (ctx) => {
     ctx.reply(`${ema_tag}, ${angelo_m_tag}`, { parse_mode: 'Markdown' });
 });
 bot.hears('@everyone', (ctx) => {
-    ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`, { parse_mode: 'Markdown' });
+    ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`, {
+        parse_mode: 'Markdown',
+    });
 });
 node_cron_1.default.schedule('0 11 * * *', function () {
     (0, pullDude_js_1.pullDude)()

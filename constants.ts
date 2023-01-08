@@ -10,13 +10,13 @@ const TIA_ID = process.env.TIA_ID;
 const VERONICA_ID = process.env.VERONICA_ID;
 
 export const DudeTag = {
-  angelo_tag: `[Angelo T](tg://user?id=${ANGELO_ID})`,
-  angelo_m_tag: `[@angelompero](tg://user?id=${ANGELO_M_ID})`,
+  angelo_tag: `[Tappa](tg://user?id=${ANGELO_ID})`,
+  angelo_m_tag: `[Angelo M](tg://user?id=${ANGELO_M_ID})`,
   chiara_tag: `[Chiara](tg://user?id=${CHIARA_ID})`,
-  ema_tag: `[@Pulvi88](tg://user?id=${EMA_ID})`,
-  fora_tag: `[@Uroboro00](tg://user?id=${FORA_ID})`,
-  tia_tag: `[@nostalgiaz](tg://user?id=${TIA_ID})`,
-  veronica_tag: `[@vero2000](tg://user?id=${VERONICA_ID})`,
+  ema_tag: `[Ema](tg://user?id=${EMA_ID})`,
+  fora_tag: `[Fora](tg://user?id=${FORA_ID})`,
+  tia_tag: `[Tia](tg://user?id=${TIA_ID})`,
+  veronica_tag: `[Vero](tg://user?id=${VERONICA_ID})`,
 };
 export const DudeId = {
   angelo_id: ANGELO_ID,
