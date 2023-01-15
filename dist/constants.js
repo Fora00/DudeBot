@@ -32,23 +32,32 @@ exports.DudeId = {
     veronica_id: VERONICA_ID,
 };
 exports.DudeText = {
-    links: `🚀*I DUDELINK DI CUI AVETE BISOGNO*🚀
+    links: `🚀*DudeLinks*🚀
 
-  🗂*Drive*-> [LINK](https://drive.google.com/folderview?id=1PgYdS77QVUMm8H1M881i9mNrfhpZ7tKg);
+  🗂*Drive* -> [LINK](https://drive.google.com/folderview?id=1PgYdS77QVUMm8H1M881i9mNrfhpZ7tKg);
 
-  🗓*Calendar*-> [LINK](https://calendar.google.com/calendar/u/0?cid=amo4OGdsa3RmbzFjcXNjNHBlZDBuNGtnanNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ);
+  📚*Notion* -> [LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd);
 
-  📚*Notion*->[LINK](https://www.notion.so/DUDEXPRESS-CORE-43d17af5dee0403aa6aa3faeff7158dd);
+  👨‍🔬*GUEST*  -> [LINK](https://swamp-market-b6a.notion.site/DUDEXPRESS-GUESTS-6b705fabf6624dc4b22137eb28fd3c4c);
   
-  ✒️*Editor*->[LINK](https://dudexpress.it/editor); `,
-    week: `🚀*LA SETTIMANA DEI DUDE*🚀
-  -> *lun*: review guest/core
-  -> *mar*:  storie offerte
-  -> *mer*: rubrica ig angelo T
-  -> *gio*: review core
-  -> *ven*: review guest/core
-  -> *sab*: ig sconti 
-  -> *dom*: storie meme
+  ✍️*Editor* -> [LINK](https://dudexpress.it/editor); 
+  
+  🎞*Filler*  -> [LINK](https://drive.google.com/drive/folders/1R3S0r3KIZBUYRBvNkKDFfF5CMeny9DBP?usp=share_link)
+  `,
+    week: `🚀*DudeWeeks*🚀
+    *lun*: review guest/core
+    *mar*: storie offerte
+    *mer*: rubrica 
+    *gio*: review core
+    *ven*: review guest/core
+    *sab*: fb/ig recap
+    *dom*: ig riddle
 
 Chiaranente tutto adattabile a bisogno `,
+    tags: `🚀*DudeTags*🚀
+ *@everyone*: pinga tutti
+ *@social*: pinga Angelo T, Chiara e Veronica
+ *@tech*: pinga Fora e Mattia
+ *@edit*: pinga Ema e Angelo M
+`,
 };

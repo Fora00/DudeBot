@@ -50,22 +50,28 @@ bot.command('plan', (ctx) => {
         disable_web_page_preview: true,
     });
 });
+bot.command('tags', (ctx) => {
+    ctx.reply(constants_js_1.DudeText.tags, {
+        parse_mode: 'Markdown',
+        disable_web_page_preview: true,
+    });
+});
 bot.hears('id', (ctx) => {
     ctx.reply(ctx.from.id.toString());
 });
 bot.hears('chat_id', (ctx) => {
     ctx.reply(`${ctx.chat.id} -> ${ctx.from.id}`);
 });
-bot.hears('@team_social', (ctx) => {
+bot.hears(/@social/, (ctx) => {
     ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag}`, { parse_mode: 'Markdown' });
 });
-bot.hears('@team_tech', (ctx) => {
+bot.hears(/@tech/, (ctx) => {
     ctx.reply(`${fora_tag},${tia_tag}`, { parse_mode: 'Markdown' });
 });
-bot.hears('@team_edit', (ctx) => {
+bot.hears(/@edit/, (ctx) => {
     ctx.reply(`${ema_tag}, ${angelo_m_tag}`, { parse_mode: 'Markdown' });
 });
-bot.hears('@everyone', (ctx) => {
+bot.hears(/@everyone/, (ctx) => {
     ctx.reply(`${angelo_tag},${chiara_tag},${veronica_tag},${fora_tag},${tia_tag},${ema_tag}, ${angelo_m_tag}`, { parse_mode: 'Markdown' });
 });
 node_cron_1.default.schedule('0 11 * * *', function () {
